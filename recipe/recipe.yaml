@@ -9,12 +9,6 @@ package:
 source:
   url: https://github.com/huggingface/xet-core/archive/refs/tags/v${{ version }}.tar.gz
   sha256: fa796045261b5cc8accd598e699b2511856ad539275b16f0302cdbe6ae55f722
-  patches:
-    # NOTE: Cross-compilation with pyo3 is failing on osx-arm64 so we disable
-    # the auto-initialize feature of pyo3 for all the builds. It has no consequence
-    # on the final package except when embedding Python in a Rust application where the
-    # Python interpreter must be manually initialized.
-    - disable-auto-initialize.patch
 
 build:
   number: 0
@@ -118,3 +112,4 @@ about:
 extra:
   recipe-maintainers:
     - shermansiu
+    - setu4993
